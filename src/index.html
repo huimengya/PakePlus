@@ -1,22 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="styles.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus App</title>
-        <script type="module" src="/main.js" defer></script>
-    </head>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实用工具汇总</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <body>
-        <main class="container">
-            <h1>Welcome to PakePlus</h1>
+        body {
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-            <form class="row" id="greet-form">
-                <input id="greet-input" placeholder="Enter a name..." />
-                <button type="submit">Greet</button>
-            </form>
-            <p id="greet-msg"></p>
-        </main>
-    </body>
-</html>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .card:not(.disabled):hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .card p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .card.disabled {
+            background: #f8f9fa;
+            cursor: not-allowed;
+            position: relative;
+            border-left-color: #cccccc;
+        }
+
+        .card.disabled::after {
+            content: '敬请期待';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #cccccc;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .card.disabled h2,
+        .card.disabled p {
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>实用工具导航</h1>
+            <p>探索数字、姓名与命运的奥秘</p>
+        </div>
+
+        <div class="grid-container">
+            <a href="node_modules\cnchar\mbs\手机号解析.html" class="card">
+                <h2>数字能量</h2>
+                <p>解析手机号码中隐藏的数字磁场，揭示您的运势、财富、感情和健康状况。</p>
+            </a>
+
+            <a href="node_modules\cnchar\mbs\旺运姓名.html" class="card">
+                <h2>旺运姓名</h2>
+                <p>通过姓名笔画分析五格数理，了解天格、地格、人格、总格、外格的吉凶与含义。</p>
+            </a>
+
+            <a href="node_modules\cnchar\mbs\bazi_calculator.html" class="card">
+                <h2>八字排盘</h2>
+                <p>根据您的出生时间，排出八字命盘，洞察一生的命运走向与流年大运</p>
+            </a>
+
+            <a href="#" class="card disabled">
+                <h2>三元命</h2>
+                <p>根据出生年份计算您的三元命卦，找到您的吉利方位与风水布局建议。（功能开发中）</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html> 
